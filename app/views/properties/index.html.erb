@@ -1,0 +1,38 @@
+<% if !flash[:notice].blank? %>
+  <div class="alert alert-info">
+  <%= flash[:notice] %>
+  </div>
+<% end %>
+<br />
+<%= link_to "New Property", new_property_path, class: "btn btn-primary" %>
+<br />
+<br />
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>Zipcode</th>            
+      <th>Name of LandLord</th>
+      <th>Contract's property</th>
+      <th colspan="3">Managment</th>
+      <th colspan="3">Options</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <% @properties.each do |property| %>
+      <tr>
+        <td><%= property.address %></td>
+        <td><%= property.zipcode %></td>
+        <td><%= property.landlord %></td>        
+        <td><%= link_to "Download contract's Property", property.attachment_url,:target => "_blank" %></td>    
+        <td><%= link_to "Appliances", show_appliances_property_path(property), class: "btn btn-success btn-sm" %></td> 
+        <td><%= link_to "Repairs", show_repairs_property_path(property), class: "btn btn-success btn-sm" %></td> 
+        <td><%= link_to "Tenant", show_tenants_property_path(property), class: "btn btn-success btn-sm" %></td>         
+        <td><%= link_to 'Show', property , class: "btn btn-default btn-sm"%></td>
+        <td><%= link_to 'Edit', edit_property_path(property) , class: "btn btn-default btn-sm" %></td>
+        <td><%= button_to "Delete",  property, method: :delete, class: "btn btn-danger btn-sm", 
+            confirm: "Are you sure that you wish to delete #{property.address}?" %></td>        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

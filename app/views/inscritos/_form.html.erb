@@ -1,0 +1,32 @@
+<%= form_for(@inscrito) do |f| %>
+  <% if @inscrito.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@inscrito.errors.count, "error") %> prohibited this inscrito from being saved:</h2>
+
+      <ul>
+      <% @inscrito.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.collection_select :user_id, User.order(:email), :id, :email, include_blank: true %>
+  </div>
+   <div class="field">
+    <%= f.label :empresa_id %><br>
+     <%= f.collection_select :empresa_id, Empresa.order(:nombre), :id, :nombre, include_blank: true %>
+  </div> 
+  <div class="field">
+      <%= f.label "Inscrito" %> <br />
+      <%= f.label :activo, "Yes", :value => 1  %>    
+      <%= f.radio_button :activo, "1", :checked => true%>      
+      <%= f.label :activo, "No", :value => 0 %>  
+     <%= f.radio_button :activo, "0" %>     
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

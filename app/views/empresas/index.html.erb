@@ -1,0 +1,44 @@
+
+<h1>Listado Empresas</h1>
+<% if can? :create, Empresa %>
+<%= link_to 'New Empresa', new_empresa_path %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Webpage</th>
+      <th>Email</th>
+      <th>Admnistrador</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @empresas.each do |empresa| %>      
+      <tr>        
+        <td><%= empresa.nombre %></td>
+        <td><%= empresa.webpage %></td>
+        <td><%= empresa.email %></td>
+        <td><%= empresa.user_name %></td>
+        <% if can? :show, empresa %>
+          <td><%= link_to 'Show', empresa %></td>
+        <% end %>
+        <td>
+          <% if can? :update, empresa %>
+          <%= link_to 'Edit', edit_empresa_path(empresa) %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :destroy, empresa %>
+          <%= link_to 'Destroy', empresa, method: :delete, data: { confirm: 'Esta seguro de Eliminar?' } %>
+          <% end %>
+        </td>
+      </tr>      
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

@@ -1,0 +1,58 @@
+
+<h1>Listado Articulos</h1>
+
+<% if can? :create, Articulo %>
+  <%= link_to 'Nuevo Articulo', new_articulo_path %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Foto</th>
+      <th>Barcode</th>
+      <th>Unidad medida</th>
+      <th>Componente</th>
+      <th>Modelo</th>
+      <th>Vendedor</th>
+      <th>Codigo Barras</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articulos.each do |articulo| %>
+      <tr>
+        <td><%= articulo.nombre %></td>
+        <td><%= articulo.descripcion %></td>
+        <td><%= articulo.foto %></td>
+        <td><%= articulo.barcode %></td>
+        <td><%= articulo.unidad_medida_nombre %></td>
+        <td><%= articulo.componente_nombre %></td>
+        <td><%= articulo.modelo_nombre %></td>
+        <td><%= articulo.user_name %></td>
+        <td><% barcode_image_uri(articulo.nombre,'Code39') %>
+            <% uri = "/barcode_images/Code39_#{articulo.nombre}.png" %>
+            <img src = <%= uri %> width="100" height="50" />    </td>
+
+        <td><%= link_to 'Mostrar', articulo %></td>
+    
+        <td>
+          <% if can? :update, articulo %>
+            <%= link_to 'Editar', edit_articulo_path(articulo) %>
+          <% end %>
+        </td>
+
+        <td>
+          <% if can? :destroy, articulo %>
+            <%= link_to 'Eliminar', articulo, method: :delete, data: { confirm: 'Esta seguro de Eliminar?' } %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

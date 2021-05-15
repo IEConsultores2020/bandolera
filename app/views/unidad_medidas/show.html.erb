@@ -1,0 +1,23 @@
+
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @unidad_medida.codigo %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @unidad_medida.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @unidad_medida.descripcion %>
+</p>
+
+<p>
+  <strong>Vendedor:</strong>
+  <%= @unidad_medida.user %>
+</p>
+<%= link_to 'Editar', edit_unidad_medida_path(@unidad_medida) %> |
+<%= link_to 'Atras', unidad_medidas_path %>

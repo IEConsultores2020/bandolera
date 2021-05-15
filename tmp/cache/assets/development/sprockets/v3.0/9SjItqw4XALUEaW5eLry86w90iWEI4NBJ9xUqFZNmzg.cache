@@ -1,0 +1,13 @@
+I"p(function() {
+  jQuery(function() {
+    $('#articulo_unidad_medida_nombre').autocomplete({
+      source: $('#articulo_unidad_medida_nombre').data('autocomplete-source')
+    });
+    jQuery(function() {});
+    return $('#articulo_componente_nombre').autocomplete({
+      source: $('#articulo_componente_nombre').data('autocomplete-source')
+    });
+  });
+
+}).call(this);
+:ET

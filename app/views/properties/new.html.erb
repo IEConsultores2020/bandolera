@@ -1,0 +1,13 @@
+<% if !@property.errors.empty? %>
+  <div class="alert alert-error">
+    <ul>
+      <% @property.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= render 'form' %>
+
+
+<%= link_to 'Back', properties_path %>

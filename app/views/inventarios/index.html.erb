@@ -1,0 +1,67 @@
+<h1>Listado Inventarios</h1>
+<% if can? :create, Inventario%>
+<%= link_to 'Nuevo Inventario', new_inventario_path %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Tienda</th>
+      <th>Fecha ingreso</th>
+      <th>Moneda</th>
+      <th>Articulo</th>      
+      <th>Cantidad</th>
+      <th>Valor Unidad</th>
+      <th>Valor Total</th>
+      <th>Vendedor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+   
+  <tbody>
+    <% @vquant = 0.00 %>
+    <% @vqtotalinv = 0.00 %>
+    <% @inventarios.each do |inventario| %>
+      <% @vquant += inventario.cantidad_integer.to_f %>
+      <% @vqtotalinv += inventario.valor_total.to_f %>
+      <tr>
+        <td><%= inventario.tienda_nombre %></td>
+        <td><%= inventario.fecha_ingreso %></td>   
+        <td><%= inventario.moneda %></td>
+        <td><%= inventario.articulo_nombre %></td>        
+        <td align="right"> <%=  number_with_precision(inventario.cantidad_integer, :precision => 2, :separator => ',', :delimiter => '.', :strip_insignificant_zeros => true)  %>
+          
+          </td>
+        <td align="right"><%= number_with_precision(inventario.valor_unidad, :precision => 0, :delimiter => '.') %></td>
+        <td align="right"><%= number_with_precision(inventario.valor_total, :precision => 2, :separator => ',', :delimiter => '.', :strip_insignificant_zeros => true)  %></td>
+
+         <td><%= inventario.user_name %></td>
+
+        <td><%= link_to 'Mostrar', inventario %></td>
+        <td>
+          <% if can? :update, inventario %>
+           <%= link_to 'Editar', edit_inventario_path(inventario) %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :destroy, inventario %>
+          <%= link_to 'Eliminar', inventario, method: :delete, data: { confirm: 'Esta seguro de eliminar?' } %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+     <tr></tr>
+    <tr>
+      <th>Totales</th>
+      <th></th>
+      <th><%= params[:datefilter] %></th>
+      <th></th>      
+      <th><%= number_with_precision(@vquant, :precision => 2, :separator => ',', :delimiter => '.', :strip_insignificant_zeros => true) %></th>
+      <th></th>
+      <th><%= number_with_precision(@vqtotalinv, :precision => 2, :separator => ',', :delimiter => '.', :strip_insignificant_zeros => true) %></th>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+

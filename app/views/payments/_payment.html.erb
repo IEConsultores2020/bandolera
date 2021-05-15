@@ -1,0 +1,11 @@
+<tbody>   
+  <tr>
+   <td><%= payment.details %></td>
+   <td><%= payment.payment_method.name %></td>
+   <td><%= payment.value %></td>  
+   <td><%= payment.paid_period %></td>
+   <td><%= link_to 'Show', payment, class: "btn btn-default btn-sm" %></td>
+   <td><%= link_to 'Edit', edit_payment_path(payment), class: "btn btn-default btn-sm" %></td>
+   <td><%= button_to 'Delete', payment, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>  
+</tbody>

@@ -1,0 +1,37 @@
+
+<h1>Listing Roles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @roles.each do |role| %>
+      <tr>
+        <td><%= role.name %></td>
+        <td><%= role.description %></td>
+        <td><%= link_to 'Mostrar', role %></td>
+        <td>
+          <% if can? :update, role %>
+            <%= link_to 'Editar', edit_role_path(role) %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :destroy, role %>
+          <%= link_to 'Eliminar', role, method: :delete, data: { confirm: 'Esta seguro de Eliminar?' } %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if can? :create, Role %>
+<%= link_to 'New Role', new_role_path %>
+<% end %>

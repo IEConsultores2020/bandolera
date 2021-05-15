@@ -1,0 +1,19 @@
+<% if !@propiedad.errors.empty? %>
+  <div class="alert alert-error">
+    <ul>
+      <% @propiedad.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="well">
+  <%= form_for @propiedad, html: { multipart: true } do |f| %>
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+    <%= f.label :archivo %>
+    <%= f.file_field :archivo %>
+    <%= f.submit "Guardar", class: "btn btn-primary" %>
+  <% end %>
+</div>

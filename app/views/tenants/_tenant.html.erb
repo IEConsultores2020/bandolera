@@ -1,0 +1,18 @@
+<tbody>   
+  <tr>
+   <td><%= tenant.monthly_rent %></td>
+   <td><%= tenant.monthly_administration %></td>
+   <td><%= tenant.begin_date %></td>  
+   <td><%= tenant.end_date %></td>
+   <td><%= tenant.name %> </td>
+   <td><%= tenant.phone %></td>
+   <td><%= tenant.email %></td>
+   <td><% if tenant.leasing_contract.present? %> 
+       <%= link_to "Download contract", tenant.leasing_contract_url,:target => "_blank" %>
+       <% else %>Without leasing contract<% end %></td>   
+   <td><%= link_to "Payments",  show_payments_tenant_path(tenant), class: "btn btn-success btn-sm" %></td> 
+   <td><%= link_to 'Show', tenant, class: "btn btn-default btn-sm" %></td>
+   <td><%= link_to 'Edit', edit_tenant_path(tenant), class: "btn btn-default btn-sm" %></td>
+   <td><%= button_to 'Delete', tenant, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>  
+</tbody>

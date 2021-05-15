@@ -1,0 +1,41 @@
+<h1>Listado Modelos</h1>
+<% if can? :create, Modelo %>
+<%= link_to 'Nuevo Modelo', new_modelo_path %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Vendedor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @modelos.each do |modelo| %>
+      <tr>
+        <td><%= modelo.codigo %></td>
+        <td><%= modelo.nombre %></td>
+        <td><%= modelo.descripcion %></td>
+        <td><%= modelo.user_name %></td>
+        <td><%= link_to 'Mostar', modelo %></td>
+        <td>
+          <% if can? :update, modelo %>
+          <%= link_to 'Editar', edit_modelo_path(modelo) %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :destroy, modelo %>
+          <%= link_to 'Eliminar', modelo, method: :delete, data: { confirm: 'Está seguro de eliminar?' } %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

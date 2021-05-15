@@ -1,0 +1,63 @@
+<% @property = @repair.property %>
+
+<div class="row" style="background-color:lightcyan;">
+        <div class="col-md-6">
+          <p><strong>Property</strong></p>
+          <p><strong>Address:</strong>
+          <%= @property.address %></p>
+          <p><strong>Zipcode:</strong>
+          <%= @property.zipcode %></p>
+          <p><strong>Name of Landlord:</strong>
+          <%= @property.landlord %></p>
+          <p><strong>Phone #:</strong>
+          <%= @property.phone %></p>
+          <p><strong>Email:</strong>
+          <%= @property.email %></p>
+      </div>
+</div> 
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type repair:</strong>
+  <%= @repair.type_repair.name %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @repair.details %>
+</p>
+
+<p>
+  <strong>Contractors:</strong>
+  <%= @repair.contractors %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @repair.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @repair.phone %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @repair.cost %>
+</p>
+
+<p>
+  <strong>Warranty (months):</strong>
+  <%= @repair.warranty %>
+</p>
+
+<p>
+  <strong>Date repair:</strong>
+  <%= @repair.date_repair %>
+</p>
+
+
+
+
+<%= link_to 'Edit', edit_repair_path(@repair) %> 

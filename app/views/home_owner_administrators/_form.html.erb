@@ -1,0 +1,29 @@
+<%= form_for(@home_owner_administrator) do |f| %>
+  <% if @home_owner_administrator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@home_owner_administrator.errors.count, "error") %> prohibited this home_owner_administrator from being saved:</h2>
+
+      <ul>
+      <% @home_owner_administrator.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile %><br>
+    <%= f.text_field :mobile %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

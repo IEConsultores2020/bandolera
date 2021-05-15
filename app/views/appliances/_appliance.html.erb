@@ -1,0 +1,20 @@
+
+<tbody>   
+  <tr>
+   <td><%= appliance.gadget.name %></td>
+   <td><%= appliance.description_string %></td>
+   <td><%= appliance.acquisition_date %></td>  
+   <td><%= appliance.purchase_price %></td>
+   <td><%= appliance.warranty %> months</td>
+   <td><%= appliance.contact_number %></td>
+   <td><%= appliance.contact_email %></td>
+   <td><% if appliance.invoice.present? %> 
+       <%= link_to "Download invoice", appliance.invoice_url,:target => "_blank" %>
+       <% else %>Without invoice<% end %></td>   
+   <td><%= link_to 'Show', appliance, class: "btn btn-default btn-sm" %></td>
+   <td><%= link_to 'Edit', edit_appliance_path(appliance), class: "btn btn-default btn-sm" %></td>
+   <td><%= button_to 'Delete', appliance, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>  
+</tbody>
+
+

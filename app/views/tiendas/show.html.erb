@@ -1,0 +1,24 @@
+
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @tienda.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @tienda.descripcion %>
+</p>
+
+<p>
+  <strong>Empresa:</strong>
+  <%= @tienda.empresa_nombre %>
+</p>
+
+<p>
+  <strong>Vendedor:</strong>
+  <%= @tienda.user %>
+</p>
+<%= link_to 'Editar', edit_tienda_path(@tienda) %> 
+
+<%= link_to 'Atras', tiendas_path %>

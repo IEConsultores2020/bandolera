@@ -1,0 +1,63 @@
+<% @property = @tenant.property %>
+
+<div class="row" style="background-color:lightcyan;">
+        <div class="col-md-6">
+          <p><strong>Property</strong></p>
+          <p><strong>Address:</strong>
+          <%= @property.address %></p>
+          <p><strong>Zipcode:</strong>
+          <%= @property.zipcode %></p>
+          <p><strong>Name of Landlord:</strong>
+          <%= @property.landlord %></p>
+          <p><strong>Phone #:</strong>
+          <%= @property.phone %></p>
+          <p><strong>Email:</strong>
+          <%= @property.email %></p>
+      </div>
+</div> 
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Monthly rent:</strong>
+  <%= @tenant.monthly_rent %>
+</p>
+
+<p>
+  <strong>Monthly administration:</strong>
+  <%= @tenant.monthly_administration %>
+</p>
+
+<p>
+  <strong>Begin date:</strong>
+  <%= @tenant.begin_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @tenant.end_date %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tenant.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @tenant.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @tenant.email %>
+</p>
+
+<p>
+  <strong>Leasing:</strong>
+  <%= @tenant.leasing %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_tenant_path(@tenant) %> 

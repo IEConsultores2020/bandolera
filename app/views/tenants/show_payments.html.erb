@@ -1,0 +1,66 @@
+<% provide(:title, @property.landlord) %>
+<div class="container-fluid">
+    <div class="row" style="background-color:lightcyan;">
+        <div class="col-md-6">
+          <p><strong>Property</strong></p>
+          <p><strong>Address:</strong>
+          <%= @property.address %></p>
+          <p><strong>Zipcode:</strong>
+          <%= @property.zipcode %></p>
+          <p><strong>Name of Landlord:</strong>
+          <%= @property.landlord %></p>
+          <p><strong>Phone #:</strong>
+          <%= @property.phone %></p>
+          <p><strong>Email:</strong>
+          <%= @property.email %></p>
+      </div>
+      <div class="col-md-6" style="background-color:lightblue;">
+          <p><strong>Tenant</strong></p>
+          <p><strong>Name:</strong>
+          <%= @tenant.name %></p>
+          <p><strong>Email:</strong>
+          <%= @tenant.email %></p>
+          <p><strong>phone:</strong>
+          <%= @tenant.phone %></p>
+      </div>
+    </div> 
+   </div>
+  <p id="notice"><%= notice %></p>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Listing Payments</h1>
+        <%= link_to 'New Payment',new_payment_tenant_path(@tenant),  class: "btn btn-primary"%></br>
+        <br><p></p></br>
+        <% if @tenant.payments.any? %>               
+          <strong>Payments</strong></br>
+            <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Details</th>
+                <th>Payment method</th>
+                <th>Value</th>
+                <th>Paid period</th>
+                <th colspan="3">Options</th>
+              </tr>
+            </thead>
+              <%= render @payments %>
+            </table></br>
+        <% if @applied_payments.any? %>
+        <strong>Payment Applied</strong></br> 
+            <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Details</th>
+                <th>Payment method</th>
+                <th>Value</th>
+                <th>Paid period</th>
+                <th colspan="3">Options</th>
+              </tr>
+            </thead>
+              <%= render @applied_payments %>
+            </table>
+        <% end %>    
+        <% end %>
+      </div>
+    </div>
+ </div>

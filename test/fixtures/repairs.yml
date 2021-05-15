@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type_repair_id: 
+  details: MyText
+  manpower_name: MyString
+  email: MyString
+  phone: MyString
+  cost: 1
+  warranty: 1
+  date_repair: 2016-03-15
+  user_id: 
+  property_id: 
+
+two:
+  type_repair_id: 
+  details: MyText
+  manpower_name: MyString
+  email: MyString
+  phone: MyString
+  cost: 1
+  warranty: 1
+  date_repair: 2016-03-15
+  user_id: 
+  property_id: 

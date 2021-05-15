@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Appliances</h1>
+<%= link_to 'New Appliance', new_appliance_path,  class: "btn btn-primary"%><br>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Gadget</th>
+      <th>Description </th>
+      <th>Acquisition date</th>
+      <th>Warranty</th>
+      <th>Contact number</th>
+      <th>Contact email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appliances.each do |appliance| %>
+      <tr>
+        <td><%= appliance.property.unencumbered %></td>
+        <td><%= appliance.gadget.name %></td>
+        <td><%= appliance.description_string %></td>
+        <td><%= appliance.acquisition_date %></td>
+        <td><%= appliance.warranty %></td>
+        <td><%= appliance.contact_number %></td>
+        <td><%= appliance.contact_email %></td>
+        <td><%= link_to 'Show', appliance, class: "btn btn-default btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_appliance_path(appliance), class: "btn btn-default btn-sm" %></td>
+        <td><%= button_to 'Destroy', appliance, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+

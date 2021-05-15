@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listado Articulos</h1>
+<%= link_to 'Nuevo Articulo', new_articulo_path %>
+<table>
+
+  <tbody>
+    <% @articulos.each do |articulo| %>
+      <tr>
+        <%= barcode_image_uri(@articulo.nombre) %>
+        <img src = "/public/barcode_images/Code39_AG.png" />
+        <td><%= articulo.nombre %></td>
+        <td><%= articulo.descripcion %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

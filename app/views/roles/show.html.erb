@@ -1,0 +1,19 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @role.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @role.description %>
+</p>
+
+<p>
+  <strong>Assosciated users:</strong>
+  <%= @assosciated_users %>
+</p>
+
+
+  <%= link_to 'Editar', edit_role_path(@role) %> 
+<%= link_to 'Atras', roles_path %>

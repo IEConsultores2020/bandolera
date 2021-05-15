@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<% @property = @appliance.property %>
+
+<div class="row" style="background-color:lightcyan;">
+        <div class="col-md-6">
+          <p><strong>Property</strong></p>
+          <p><strong>Address:</strong>
+          <%= @property.address %></p>
+          <p><strong>Zipcode:</strong>
+          <%= @property.zipcode %></p>
+          <p><strong>Name of Landlord:</strong>
+          <%= @property.landlord %></p>
+          <p><strong>Phone #:</strong>
+          <%= @property.phone %></p>
+          <p><strong>Email:</strong>
+          <%= @property.email %></p>
+      </div>
+</div> 
+
+<p>
+  <strong>Gadget:</strong>
+  <%= @appliance.gadget.name %>
+</p>
+
+<p>
+  <strong>Description string:</strong>
+  <%= @appliance.description_string %>
+</p>
+
+<p>
+  <strong>Acquisition date:</strong>
+  <%= @appliance.acquisition_date %>
+</p>
+<p>
+  <strong>Purchase price:</strong>
+  <%= @appliance.purchase_price %>
+</p>
+<p>
+  <strong>Warranty:</strong>
+  <%= @appliance.warranty %>
+</p>
+
+<p>
+  <strong>Contact number:</strong>
+  <%= @appliance.contact_number %>
+</p>
+
+<p>
+  <strong>Contact email:</strong>
+  <%= @appliance.contact_email %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @appliance.active %>
+</p>
+
+<p>
+  <strong>Inactive date:</strong>
+  <%= @appliance.inactive_date %>
+</p>
+
+<td><%= link_to "Download invoice", @appliance.invoice_url,:target => "_blank" %></td><br>    
+        
+
+<%= link_to 'Edit', edit_appliance_path(@appliance) %> 

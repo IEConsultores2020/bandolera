@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @home_owner_administrator.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @home_owner_administrator.email %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @home_owner_administrator.mobile %>
+</p>
+
+<%= link_to 'Edit', edit_home_owner_administrator_path(@home_owner_administrator) %> |
+<%= link_to 'Back', home_owner_administrators_path %>

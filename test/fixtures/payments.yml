@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tenant_id: 
+  paid_period: 2016-03-18
+  details: MyText
+  payment_method_id: 
+  value: 1
+  applied: false
+
+two:
+  tenant_id: 
+  paid_period: 2016-03-18
+  details: MyText
+  payment_method_id: 
+  value: 1
+  applied: false

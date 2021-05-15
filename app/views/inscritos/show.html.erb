@@ -1,0 +1,11 @@
+<p>
+  <strong>User email:</strong>
+  <%= @inscrito.user_email %>
+</p>
+
+<p>
+  <strong>Empresa:</strong>
+  <%= @inscrito.empresa_nombre %>
+</p>
+ <%= link_to 'Editar', edit_inscrito_path(@inscrito) %> 
+<%= link_to 'Atras', inscritos_path %>

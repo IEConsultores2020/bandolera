@@ -1,0 +1,43 @@
+
+
+<h1>Listado Unidad Medidas</h1>
+<% if can? :create, UnidadMedida %>
+<%= link_to 'Nueva Unidad medida', new_unidad_medida_path %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Vendedor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @unidad_medidas.each do |unidad_medida| %>
+      <tr>
+        <td><%= unidad_medida.codigo %></td>
+        <td><%= unidad_medida.nombre %></td>
+        <td><%= unidad_medida.descripcion %></td>
+        <td><%= unidad_medida.user_name %></td>      
+        <td><%= link_to 'Mostrar', unidad_medida %></td>
+        <td>
+          <% if can? :update, unidad_medida %>
+          <%= link_to 'Editar', edit_unidad_medida_path(unidad_medida) %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :destroy, unidad_medida %>
+          <%= link_to 'Eliminar', unidad_medida, method: :delete, data: { confirm: 'Esta seguro de eliminar?' } %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

@@ -1,0 +1,51 @@
+<%= form_for(@appliance) do |f| %>
+  <% if @appliance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appliance.errors.count, "error") %> prohibited this appliance from being saved:</h2>
+
+      <ul>
+      <% @appliance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>  
+<div class="field">
+    <strong>Property</strong><br>
+    <%= f.collection_select :property_id, Property.order(:unencumbered), :id, :unencumbered, prompt: false %><br>
+  </div>
+ 
+  <div class="field">
+    <strong>Gadget</strong><br>
+    <%= f.collection_select :gadget_id, Gadget.order(:name), :id, :name, prompt: false %><br>
+  </div>
+  <%= link_to 'New Gadget', new_gadget_path,:target => "_blank" %>
+
+  <div class="field">
+    <%= f.label :description_string, 'Description' %><br>
+    <%= f.text_field :description_string %>
+  </div>
+  <div class="field">
+    <%= f.label :acquisition_date %><br>
+    <%= f.date_select :acquisition_date %>
+  </div>
+  <div class="field">
+    <%= f.label :warranty %><br>
+    <%= f.number_field :warranty %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_number %><br>
+    <%= f.number_field :contact_number %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_email %><br>
+    <%= f.text_field :contact_email %>
+  </div>
+<div class="well">    
+    <%= f.label :invoice  %>
+    <%= f.file_field :invoice %> 
+  </div>  
+  <div class="actions">
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  </div>
+<% end %>

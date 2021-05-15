@@ -1,0 +1,22 @@
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @empresa.nombre %>
+</p>
+
+<p>
+  <strong>Webpage:</strong>
+  <%= @empresa.webpage %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @empresa.email %>
+</p>
+
+<p>
+  <strong>Administrador:</strong>
+  <%= @empresa.user %>
+</p>
+<%= link_to 'Editar', edit_empresa_path(@empresa) %> 
+<%= link_to 'Regresar', empresas_path %>

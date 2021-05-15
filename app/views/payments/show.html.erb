@@ -1,0 +1,63 @@
+<% @tenant = @payment.tenant %>
+<% @property = @tenant.property %>
+
+<% provide(:title, @property.landlord) %>
+<div class="container-fluid">
+    <div class="row" style="background-color:lightcyan;">
+        <div class="col-md-6">
+          <p><strong>Property</strong></p>
+          <p><strong>Address:</strong>
+          <%= @property.address %></p>
+          <p><strong>Zipcode:</strong>
+          <%= @property.zipcode %></p>
+          <p><strong>Name of Landlord:</strong>
+          <%= @property.landlord %></p>
+          <p><strong>Phone #:</strong>
+          <%= @property.phone %></p>
+          <p><strong>Email:</strong>
+          <%= @property.email %></p>
+      </div>
+      <div class="col-md-6" style="background-color:lightblue;">
+          <p><strong>Tenant</strong></p>
+          <p><strong>Name:</strong>
+          <%= @tenant.name %></p>
+          <p><strong>Email:</strong>
+          <%= @tenant.email %></p>
+          <p><strong>phone:</strong>
+          <%= @tenant.phone %></p>
+      </div>
+    </div> 
+   </div>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tenant:</strong>
+  <%= @payment.tenant.name %>
+</p>
+
+<p>
+  <strong>Paid period:</strong>
+  <%= @payment.paid_period %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @payment.details %>
+</p>
+
+<p>
+  <strong>Payment method:</strong>
+  <%= @payment.payment_method.name %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @payment.value %>
+</p>
+
+<p>
+  <strong>Applied:</strong>
+  <%= @payment.applied %>
+</p>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> 

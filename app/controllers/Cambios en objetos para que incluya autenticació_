@@ -1,0 +1,14 @@
+  after_create :background_save
+
+   protected
+   def background_save
+      inscrito = Inscrito.new(:user_id => :user_id, :empresa_id => empresa_demo, :activo => "1")   
+      inscrito.save!
+    
+   end
+
+   @articulos = @products.user_id(:user_id)
+   @articulos = Articulo.all.order("nombre DESC")
+
+
+   @empresas = Empresa.all

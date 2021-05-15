@@ -1,0 +1,14 @@
+Anterior http://190.27.224.77:3000/
+
+Actual 190.168.115.124
+
+Nuevo 190.68.115.123
+
+rails g migration add_empresa_id_to_componente empresa_id:integer
+rake db:migrate
+
+rails g migration add_empresa_id_to_modelo empresa_id:integer
+rails g migration add_empresa_id_to_unidad_medida empresa_id:integer
+rails g scaffold inscrito user:belongs_to empresa:belongs_to
+
+rails g migration add_activo_to_inscrito activo:integer

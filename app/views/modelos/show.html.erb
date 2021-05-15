@@ -1,0 +1,23 @@
+<p>
+  <strong>Codigo:</strong>
+  <%= @modelo.codigo %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @modelo.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @modelo.descripcion %>
+</p>
+
+<p>
+  <strong>Vendedor:</strong>
+  <%= @modelo.user_name %>
+</p>
+
+  <%= link_to 'Editar', edit_modelo_path(@modelo) %> 
+
+<%= link_to 'Atras', modelos_path %>

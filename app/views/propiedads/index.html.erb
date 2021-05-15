@@ -1,0 +1,27 @@
+<% if !flash[:notice].blank? %>
+  <div class="alert alert-info">
+  <%= flash[:notice] %>
+  </div>
+<% end %>
+<br />
+<%= link_to "Crear archivo", new_propiedad_path, class: "btn btn-primary" %>
+<br />
+<br />
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descargar</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @propiedades.each do |propiedad| %>
+      <tr>
+        <td><%= propiedad.nombre %></td>
+        <td><%= link_to "descargar archivo", propiedad.archivo_url %></td>
+        <td><%= button_to "Eliminar",  propiedad, method: :delete, class: "btn btn-danger", confirm: "Seguro desea eliminar #{propiedad.nombre}?" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

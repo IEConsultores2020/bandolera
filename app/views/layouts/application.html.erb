@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bandolera</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  
+  <!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+  </script>
+<![endif]-->
+  
+  <%= render 'layouts/shim' %>
+
+</head>
+<body>
+ <%= render 'layouts/header' %>
+ <h1>Bandolera</h1>
+ <h2>Ownership Management: appliances, repairs and rent.</h2>
+
+   <div class="container" style="padding-top:20px;">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+   </div>
+
+   
+</body>
+</html>

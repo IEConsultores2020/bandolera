@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p> 
+<h1>Listing Inscritos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Empresa</th>
+      <th>Activo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inscritos.each do |inscrito| %>
+      <tr>        
+        <td><%= inscrito.user_email %></td>
+        <td><%= inscrito.empresa_nombre %></td>
+        <td><%= inscrito.activo %></td>        
+           <td><%= link_to 'Mostrar', inscrito %></td>
+        <% if can? :update, inscrito %>
+           <td><%= link_to 'Editar', edit_inscrito_path(inscrito) %></td>
+         <% end %>  
+        <% if can? :destroy, inscrito %>
+          <td><%= link_to 'Eliminar', inscrito, method: :delete, data: { confirm: 'Esta seguro de Eliminar?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inscrito', new_inscrito_path %>

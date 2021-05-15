@@ -1,0 +1,47 @@
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @articulo.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @articulo.descripcion %>
+</p>
+
+<p>
+  <strong>Foto:</strong>
+  <%= @articulo.foto %>
+
+</p>
+
+<p>
+  <strong>Unidad medida:</strong>
+  <%= @articulo.unidad_medida_nombre %>
+</p>
+
+<p>
+  <strong>Componente:</strong>
+  <%= @articulo.componente_nombre %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @articulo.modelo_nombre %>
+</p>
+
+<p>
+  <strong>Vendedor:</strong>
+  <%= @articulo.user_name %>
+</p>
+
+<p>
+  <strong>Barcode:</strong>
+   <% barcode_image_uri(@articulo.nombre,'Code39') %>
+   <% uri = "/barcode_images/Code39_#{@articulo.nombre}.png" %>
+   <img src = <%= uri %> width="100" height="50" />
+</p>
+
+<%= link_to 'Editar', edit_articulo_path(@articulo) %> 
+
+<%= link_to 'Atras', articulos_path %>

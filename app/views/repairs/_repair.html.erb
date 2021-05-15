@@ -1,0 +1,18 @@
+<tbody>   
+  <tr>
+   <td><%= repair.type_repair.name %></td>
+   <td><%= repair.details %></td>
+   <td><%= repair.contractors %></td>  
+   <td><%= repair.email %></td>
+   <td><%= repair.phone %></td>
+   <td><%= repair.cost %></td> 
+   <td><%= repair.warranty %> months</td>
+   <td><%= repair.date_repair %></td>   
+   <td><% if repair.purchase_order.present? %> 
+       <%= link_to "Download purchase order", repair.purchase_order_url,:target => "_blank" %></td> 
+       <% else %>Without purchase order<% end %></td>
+    <td><%= link_to 'Show', repair, class: "btn btn-default btn-sm" %></td>
+   <td><%= link_to 'Edit', edit_repair_path(repair), class: "btn btn-default btn-sm" %></td>
+   <td><%= button_to 'Delete', repair, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>  
+</tbody>

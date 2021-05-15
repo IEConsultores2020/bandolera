@@ -1,0 +1,24 @@
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @componente.codigo %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @componente.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @componente.descripcion %>
+</p>
+
+<p>
+  <strong>Vendedor:</strong>
+  <%= @componente.user_name %>
+</p>
+
+  <%= link_to 'Editar', edit_componente_path(@componente) %> |
+
+<%= link_to 'Atras', componentes_path %>

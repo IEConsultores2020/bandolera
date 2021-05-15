@@ -1,0 +1,68 @@
+<h1>Editing Property</h1>
+
+<%= form_for(@property) do |f| %>
+  <% if @property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+      <% @property.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :landlord, 'Name of LandLord' %><br>
+    <%= f.text_field :landlord %>
+  </div>
+  <div class="field">
+    <%= f.label :phone, 'Phone #' %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <strong>Home Owner Administrator</strong><br>
+    <%= f.collection_select :home_owner_administrator_id, HomeOwnerAdministrator.order(:name), :id, :name, prompt: false %>  <br>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :zipcode %><br>
+    <%= f.text_field :zipcode %>
+  </div>
+  <div class="field">
+    <%= f.label :area,'Area in Sq.Ft.' %><br>
+    <%= f.text_field :area %>
+  </div>  
+  <div class="field">
+    <%= f.label :purchase_price %><br>
+    <%= f.number_field :purchase_price%>USD
+  </div>
+  <div class="field">
+    <%= f.label :purchase_date %><br>
+    <%= f.date_select :purchase_date %>
+  </div>  
+
+<div class="well">     
+    <%= f.label :attachment, "Contract's Property" %>
+    <%= f.file_field :attachment %> 
+  </div>
+  <div class="well"> 
+    <%= f.label :owner_ship_certificate %>
+    <%= f.file_field :owner_ship_certificate %> 
+  </div>
+  <div class="actions">
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Show', @property,:target => "_blank" %> |
+<%= link_to 'Back', properties_path %>

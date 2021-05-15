@@ -1,0 +1,43 @@
+
+
+<h1>Listado Tiendas</h1>
+<% if can? :create, Tienda%>
+<%= link_to 'New Tienda', new_tienda_path %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Empresa</th>
+      <th>Vendedor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tiendas.each do |tienda| %>
+      <tr>
+        <td><%= tienda.nombre %></td>
+        <td><%= tienda.descripcion %></td>
+        <td><%= tienda.empresa_nombre %></td>
+        <td><%= tienda.user_name %></td>              
+        <td><%= link_to 'Mostrar', tienda %></td>
+        <td>
+          <% if can? :update, tienda %>
+          <%= link_to 'Editar', edit_tienda_path(tienda) %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :destroy, tienda %>
+          <%= link_to 'Eliminar', tienda, method: :delete, data: { confirm: 'Esta seguró de Eliminar?' } %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

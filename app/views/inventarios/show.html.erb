@@ -1,0 +1,47 @@
+
+
+<p>
+  <strong>Tienda:</strong>
+  <%= @inventario.tienda_nombre %>
+</p>
+
+<p>
+  <strong>Fecha ingreso:</strong>
+  <%= @inventario.fecha_ingreso %>
+</p>
+
+<p>
+  <strong>Moneda:</strong>
+  <%= @inventario.moneda %>
+</p>
+
+<p>
+  <strong>Articulo:</strong>
+  <%= @inventario.articulo_nombre %>
+</p>
+<p>
+  <strong>Cantidad integer:</strong> 
+  <%=  number_with_precision(@inventario.cantidad_integer , :precision => 2, :separator => ',', :delimiter => '.', :strip_insignificant_zeros => true) %>
+</p>
+
+<p>
+  <strong>Valor unidad:</strong>
+  <%= number_with_precision(@inventario.valor_unidad, :precision => 0, :separator => ',', :delimiter => '.', :strip_insignificant_zeros => true) %>
+</p>
+
+<p>
+  <strong>Valor total:</strong>
+  <%= number_with_precision(@inventario.valor_total, :precision => 2, :separator => ',', :delimiter => '.', :strip_insignificant_zeros => true) %>
+
+</p>
+
+<p>
+  <strong>Vendedor:</strong>
+  <%= @inventario.user %>
+</p>
+
+
+
+  <%= link_to 'Editar', edit_inventario_path(@inventario) %> 
+
+<%= link_to 'Atras', inventarios_path %>

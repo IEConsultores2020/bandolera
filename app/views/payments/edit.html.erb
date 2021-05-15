@@ -1,0 +1,35 @@
+<% @tenant = @payment.tenant %>
+<% @property = @tenant.property %>
+
+<% provide(:title, @property.landlord) %>
+<div class="container-fluid">
+    <div class="row" style="background-color:lightcyan;">
+        <div class="col-md-6">
+          <p><strong>Property</strong></p>
+          <p><strong>Address:</strong>
+          <%= @property.address %></p>
+          <p><strong>Zipcode:</strong>
+          <%= @property.zipcode %></p>
+          <p><strong>Name of Landlord:</strong>
+          <%= @property.landlord %></p>
+          <p><strong>Phone #:</strong>
+          <%= @property.phone %></p>
+          <p><strong>Email:</strong>
+          <%= @property.email %></p>
+      </div>
+      <div class="col-md-6" style="background-color:lightblue;">
+          <p><strong>Tenant</strong></p>
+          <p><strong>Name:</strong>
+          <%= @tenant.name %></p>
+          <p><strong>Email:</strong>
+          <%= @tenant.email %></p>
+          <p><strong>phone:</strong>
+          <%= @tenant.phone %></p>
+      </div>
+    </div> 
+   </div>
+<h1>Editing Payment</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @payment %> 

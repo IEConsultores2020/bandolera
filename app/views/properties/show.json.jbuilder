@@ -1,0 +1,1 @@
+json.extract! @prop, :id, :landlord, :phone, :email, :address, :zipcode, :area, :hoa, :purchaseprice, :purchasedate, :expenses, :net_proceeds, :earning_capacity, :gross_income, :created_at, :updated_at

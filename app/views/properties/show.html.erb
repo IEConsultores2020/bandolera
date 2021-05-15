@@ -1,0 +1,103 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name of Landlord:</strong>
+  <%= @property.landlord %>
+</p>
+
+<p>
+  <strong>Phone #:</strong>
+  <%= @property.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @property.email %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @property.address %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @property.zipcode %>
+</p>
+
+<p>
+  <strong>Area in Sq.Ft.</strong>
+  <%= @property.area %>
+</p>
+
+<p>
+  <strong>Home Owner Administrator:</strong>
+  <%= @property.home_owner_administrator.name %>
+</p>
+
+<p>
+  <strong>Purchaseprice:</strong>
+  <%= @property.purchase_price %> USD
+</p>
+
+<p>
+  <strong>Purchasedate:</strong>
+  <%= @property.purchase_date %>
+</p>
+<p>
+  
+<p>
+<td><%= link_to "Download Owner Ship Certificate", @property.owner_ship_certificate_url,:target => "_blank" %></td>
+</p>
+<p>
+<td><%= link_to "Download contract's Property",@property.attachment_url,:target => "_blank" %></td>
+</p>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      
+      <th>Gross income = Σ(Tenant)</th>
+      <th>Expenses = Appliances + Maintenances</th>
+      <th>Net income = Gross Income – Expenses</th>            
+      <th>Earning capacity = (Net Income*100%) / Purchase price </th>      
+      <th>Profit = net income - Purchase price </th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>       
+        
+        <td align="right"><%@gross_income =0.00 %>
+            <%= number_with_precision(@gross_income, :precision => 0, :delimiter => '.') %></td>
+        
+        <td align="right"><%  @zero = 0.00 %>
+            <%  @purchase_price_total = 0.00 %>
+            <%  @appliances = @property.appliances %>
+            <%  @appliances.each do |a|
+                  @purchase_price_total += if a.purchase_price.nil? 
+                  @zero 
+                else 
+                  a.purchase_price 
+                end
+                end %>
+            <% @expenses = @purchase_price_total + @zero %>
+            <%= number_with_precision(@expenses, :precision => 0, :delimiter => '.') %>  </td>
+        
+        <td align="right"><% @net_income = @gross_income - @expenses  %> 
+            <%= number_with_precision(@net_income, :precision => 0, :delimiter => '.') %> </td>
+        
+        <td align="right"><% @earning_capacity= 0.00%>
+            <% @earning_capacity = (@net_income.to_f + 100.to_s(:percentage, precision: 0).to_f)/@property.purchase_price.to_f %>
+            <%= number_with_precision(@earning_capacity, :precision => 3, :delimiter => '.') %> %</td>  
+        
+        <td align="right"><% @profit = @net_income - @property.purchase_price %>
+            <%= number_with_precision(@profit, :precision => 0, :delimiter => '.') %></td>
+        
+        <td><%= link_to "Recalculate", '#', class: "btn btn-success btn-sm" %></td>        
+      </tr>
+  </tbody>
+</table>
+
+
+<%= link_to 'Edit', edit_property_path(@property) %> |
+<%= link_to 'Back', properties_path %>

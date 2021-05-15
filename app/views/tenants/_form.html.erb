@@ -1,0 +1,55 @@
+
+<%= form_for(@tenant) do |f| %>
+  <% if @tenant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tenant.errors.count, "error") %> prohibited this tenant from being saved:</h2>
+
+      <ul>
+      <% @tenant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <strong>Property</strong><br>
+    <%= f.collection_select :property_id, Property.order(:address), :id, :address, prompt: false %><br>
+  </div>
+  <div class="field">
+    <%= f.label :monthly_rent %><br>
+    <%= f.number_field :monthly_rent %>
+  </div>
+  <div class="field">
+    <%= f.label :monthly_administration %><br>
+    <%= f.number_field :monthly_administration %>
+  </div>
+  <div class="field">
+    <%= f.label :begin_date %><br>
+    <%= f.date_select :begin_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br>
+    <%= f.date_select :end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.number_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :leasing %><br>
+    <%= f.check_box :leasing %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
